@@ -1,0 +1,12 @@
+{
+  "parser": "babel-eslint",
+  "plugins": ["babel", "import", "jest", "prettier"],
+  "extends": ["airbnb-base", "plugin:jest/recommended", "plugin:lodash-fp/recommended", "prettier"],
+  "env": {
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "no-console": "off"
+  }
+}
