@@ -1,5 +1,9 @@
 # sans
 
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/rustamyusupov/sans/blob/master/LICENSE)
+[![npm version](https://badge.fury.io/js/sans.svg)](https://badge.fury.io/js/sans)
+[![Build Status](https://travis-ci.org/rustamyusupov/sans.svg?branch=master)](https://travis-ci.org/rustamyusupov/sans)
+
 set StAtus iN Slack from the command line interface
 
 ## Install
