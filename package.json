@@ -5,6 +5,7 @@
   "description": "set StAtus iN Slack from the command line interface",
   "license": "MIT",
   "scripts": {
+    "start": "npx babel-node -- src/bin/sans.js",
     "lint": "eslint .",
     "test": "jest",
     "watch": "jest --watch",
