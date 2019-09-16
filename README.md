@@ -16,7 +16,7 @@ To set status you need set the SLACK_TOKEN as environment variable
 
     export SLACK_TOKEN="slack-token"
 
-You can get the Slack token from [https://api.slack.com/web#auth](https://api.slack.com/web#auth)
+You can get the Slack token from [authentication](https://api.slack.com/web#authentication) or [legacy token](https://api.slack.com/custom-integrations/legacy-tokens)
 
 ## Usage
 
