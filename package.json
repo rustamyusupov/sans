@@ -1,6 +1,6 @@
 {
   "name": "sans-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Rustam Yusupov",
   "description": "set StAtus iN Slack from the command line interface",
   "license": "MIT",
