@@ -11,19 +11,18 @@ const run = () => {
     .version(version)
     .option('-m, --message [text]', 'add text to the status', '')
     .option('-e, --emoji [type]', 'add emoji to the status', '')
-    .option('-p, --presence', 'set precense away (default: "auto")')
     .option('-d, --duration [minutes]', 'clear after time frame', 0)
     .parse(process.argv);
 
-  const { message, emoji, presence, duration } = program;
+  const { message, emoji, duration } = program;
 
-  if (!(message || emoji || presence)) {
+  if (!message && !emoji) {
     program.outputHelp();
 
     return;
   }
 
-  sans({ message, emoji, presence, duration });
+  sans({ message, emoji, duration });
 };
 
 run();
