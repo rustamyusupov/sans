@@ -12,7 +12,7 @@ export default async ({ token, message, emoji, expiration }) => {
     data: {
       profile: {
         status_text: message,
-        status_emoji: emoji,
+        status_emoji: `:${emoji}:`,
         status_expiration: expiration,
       },
     },
