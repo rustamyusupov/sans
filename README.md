@@ -8,7 +8,7 @@ set StAtus iN Slack from the command line interface
 
 ## Install
 
-    npm i sans -g
+    npm i sans-cli -g
 
 ## Environment variables
 
