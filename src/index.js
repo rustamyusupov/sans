@@ -1,15 +1,20 @@
-import setStatus from './slack';
+import { setStatus, setPresence } from './slack';
 import getExpiration from './utils';
 
-export default async ({ message, emoji, duration }) => {
+export default ({ message, emoji, duration, presence }) => {
   const token = process.env.SLACK_TOKEN;
 
   if (!token) {
     throw new Error('undefined SLACK_TOKEN in environment variables');
   }
 
-  const expiration = getExpiration(duration);
-  const { ok, error } = await setStatus({ token, message, emoji, expiration });
+  if (message || emoji) {
+    const expiration = getExpiration(duration);
 
-  console.log({ ok, error });
+    setStatus({ token, message, emoji, expiration });
+  }
+
+  if (presence) {
+    setPresence({ token, presence });
+  }
 };

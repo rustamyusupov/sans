@@ -1,23 +1,40 @@
 import request from './request';
 
-const url = 'https://slack.com/api/users.profile.set';
+const apiUrl = 'https://slack.com/api';
 
-export default async ({ token, message, emoji, expiration }) => {
+const updateStatus = async ({ token, url, data }) => {
   const options = {
     method: 'post',
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-type': 'application/json; charset=utf-8',
     },
-    data: {
-      profile: {
-        status_text: message,
-        status_emoji: `:${emoji}:`,
-        status_expiration: expiration,
-      },
+    data,
+  };
+
+  const { error } = await request(url, options);
+
+  if (error) {
+    throw new Error(error);
+  }
+};
+
+export const setStatus = ({ token, message, emoji, expiration }) => {
+  const url = `${apiUrl}/users.profile.set`;
+  const data = {
+    profile: {
+      status_text: message,
+      status_emoji: emoji ? `:${emoji}:` : '',
+      status_expiration: expiration,
     },
   };
-  const { ok, error } = await request(url, options);
 
-  return { ok, error };
+  updateStatus({ token, url, data }).catch(console.error);
+};
+
+export const setPresence = ({ token, presence }) => {
+  const url = `${apiUrl}/users.setPresence`;
+  const data = { presence };
+
+  updateStatus({ token, url, data }).catch(console.error);
 };
