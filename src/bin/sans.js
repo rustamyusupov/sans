@@ -12,7 +12,7 @@ const run = () => {
     .option('-m, --message [text]', 'add text to the status', '')
     .option('-e, --emoji [type]', 'add emoji to the status', '')
     .option('-d, --duration [minutes]', 'clear after time frame', 0)
-    .option('-p, --presence', 'set presence to away')
+    .option('-p, --presence <auto|away>', 'set presence')
     .parse(process.argv);
 
   const { message, emoji, duration, presence } = program;
@@ -23,7 +23,7 @@ const run = () => {
     return;
   }
 
-  sans({ message, emoji, duration });
+  sans({ message, emoji, duration, presence });
 };
 
 run();
