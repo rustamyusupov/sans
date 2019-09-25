@@ -23,11 +23,12 @@ You can get the Slack token from [authentication](https://api.slack.com/web#auth
     Usage: sans [options]
 
     Options:
-      -V, --version             output the version number
-      -m, --message [text]      add text to the status (default: "")
-      -e, --emoji [type]        add emoji to the status (default: "")
-      -d, --duration [minutes]  clear after time frame (default: 0)
-      -h, --help                output usage information
+      -V, --version               output the version number
+      -m, --message [text]        add text to the status (default: "")
+      -e, --emoji [type]          add emoji to the status (default: "")
+      -d, --duration [minutes]    clear message and emoji after time frame
+      -p, --presence <auto|away>  set presence
+      -h, --help                  output usage information
 
 ## Examples
 
@@ -42,6 +43,10 @@ Set an emoji
 Set a message, an emoji and clean up in 25 minutes
 
     sans -m eating -e fork_and_knife -d 25
+
+Set a presence
+
+    sans -p away
 
 You can also pass token as ENV variable
 

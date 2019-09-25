@@ -11,7 +11,7 @@ const run = () => {
     .version(version)
     .option('-m, --message [text]', 'add text to the status', '')
     .option('-e, --emoji [type]', 'add emoji to the status', '')
-    .option('-d, --duration [minutes]', 'clear after time frame', 0)
+    .option('-d, --duration [minutes]', 'clear message and emoji after time frame', 0)
     .option('-p, --presence <auto|away>', 'set presence')
     .parse(process.argv);
 
