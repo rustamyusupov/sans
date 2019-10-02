@@ -16,7 +16,6 @@ const run = () => {
     .parse(process.argv);
 
   const { message, emoji, duration, presence } = program;
-  console.log({ message, emoji, duration, presence });
 
   if (message === undefined && emoji === undefined && presence === undefined) {
     program.outputHelp();

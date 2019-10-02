@@ -8,7 +8,7 @@ export default ({ message, emoji, duration, presence }) => {
     throw new Error('undefined SLACK_TOKEN in environment variables');
   }
 
-  if (message || emoji) {
+  if (message !== undefined || emoji !== undefined) {
     const expiration = getExpiration(duration);
 
     setStatus({ token, message, emoji, expiration });
