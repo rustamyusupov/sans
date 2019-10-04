@@ -15,10 +15,7 @@ export const getExpiration = duration => {
 export const getEndTime = expiration => {
   const epoch = new Date(0);
   const date = new Date(epoch.setUTCSeconds(expiration));
-  const endTime = date
-    .toISOString()
-    .replace(/T/, ' ')
-    .replace(/\..+/, '');
+  const endTime = date.toLocaleTimeString();
 
   return endTime;
 };
