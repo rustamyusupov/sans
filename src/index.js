@@ -1,5 +1,5 @@
 import { setStatus, setPresence } from './slack';
-import getExpiration from './utils';
+import getExpiration from './utils/getExpiration';
 
 export default ({ message, emoji, duration, presence }) => {
   const token = process.env.SLACK_TOKEN;
