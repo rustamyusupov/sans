@@ -10,21 +10,20 @@ export default ({ message, emoji, duration, presence }) => {
 
   const expiration = getExpiration(duration);
   const endTime = getEndTime(expiration);
+  const statuses = [];
 
   if (message !== undefined || emoji !== undefined) {
     setStatus({ token, message, emoji, expiration });
+    statuses.push(() => setStatus({ token, message: '' }));
   }
 
   if (presence) {
     setPresence({ token, presence });
+    statuses.push(() => setPresence({ token, presence: 'auto' }));
   }
 
   if (expiration) {
     console.log(`status set, status will be removed at ${endTime}`);
-
-    setTimer(expiration, () => {
-      setStatus({ token, message: '' });
-      setPresence({ token, presence: 'auto' });
-    });
+    setTimer(expiration, () => statuses.map(fn => fn()));
   }
 };
